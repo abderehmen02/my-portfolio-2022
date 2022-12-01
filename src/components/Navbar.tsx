@@ -9,14 +9,16 @@ import MyImg from '../images/myimg.jpg' ;
 import InstagramIcon from '@mui/icons-material/Instagram';
 const NavBar : React.FC =()=>{
 
-  const StyledToolBar = styled(Toolbar)({
+  const StyledToolBar = styled(Toolbar)(({theme})=>({
     display: 'flex' ,
     justifyContent: 'space-between' ,
     position : 'fixed' ,
     top : 0,
     right  : 0,
+    backgroundColor : theme.palette.primary.main ,
+    zIndex : 1,
     width : '97%',
-  })
+  }))
 
   const IconsBox = styled(Box)({
 display : 'flex' ,

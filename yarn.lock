@@ -7419,6 +7419,11 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-useonview@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-useonview/-/react-useonview-1.2.2.tgz#c2fe201d7e7d4dd5947b3e3f6e5ff927e3f82285"
+  integrity sha512-znTGIdhBx8N++aC7dGrCN7vJxZaq/ff/xgF2AHwbkY+ZlhmkbHubLCAvWm6Ll/PIfdmxr+2E0gdc26BXWVqwlw==
+
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"

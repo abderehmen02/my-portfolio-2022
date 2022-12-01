@@ -31,7 +31,7 @@ cursor : 'pointer' ,
 '&:hover' : {
     color : selected ? color :  bgColor , 
     backgroundColor :  selected ? bgColor :  theme.palette.dark.light ,
-    border  : selected ? '6px 2px 4px black' : `2px solid ${theme.palette.dark.main}`
+    border  : selected ? '6px 2px 4px black' : `2px solid ${theme.palette.white.dark}`
 }
     }))
 

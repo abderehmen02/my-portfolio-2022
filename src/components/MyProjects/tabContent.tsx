@@ -42,10 +42,10 @@ const TextBox  = styled(Box)(({theme})=>({
     </Box>
     <Typography variant='h5' marginLeft={16} marginRight={16} textAlign='center' > {longDescreption} </Typography>
     <Box sx={{justifyContent : 'center' , display : 'flex'   , gap : 4}} >
-        <Button  variant="contained" startIcon={<NewspaperIcon/>} >
+        <Button sx={{width : '240px'}}  variant="contained" startIcon={<NewspaperIcon/>} >
 Test Live
         </Button>
-        <Button variant='outlined' startIcon={<GitHubIcon/>} >
+        <Button variant='outlined' sx={{width : '240px'}} startIcon={<GitHubIcon/>} >
             github repository
         </Button>
     </Box>

@@ -6,6 +6,7 @@ import theme from './Styling/theme.ts';
 import Home from './pages/home.tsx';
 import MyProjects from './pages/myProjects.tsx';
 import AboutMe from './pages/AboutMe.tsx'
+import ContactMe from './pages/contactMe.tsx';
 
 
 function App() : JSX.Element {
@@ -16,6 +17,7 @@ function App() : JSX.Element {
     <Home/>
     <MyProjects/>
     <AboutMe/>
+    <ContactMe/>
     </ThemeProvider>
    </Box>
   );

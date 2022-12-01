@@ -4,7 +4,19 @@ import myProjects from '../assets/projects.ts'
 import Tab from '../components/MyProjects/tab.tsx'
 import {Project} from '../Types'
 import TabContent from '../components/MyProjects/tabContent.tsx'
-const MyProjects : React.FC =  () => {
+import {componentData} from '../Types/components'
+
+
+interface pageProps {
+  RenderedComponent : componentData ,
+   setRenderedComponent :   React.Dispatch<React.SetStateAction<string>> ,
+}
+
+
+
+
+
+const MyProjects : React.FC<pageProps> =  () => {
     // styled components
 const PageContainer  = styled(Box)(({theme})=>({
         height : "fit-content" ,
@@ -40,7 +52,7 @@ console.log("selectedProject")
 
     return (
         <PageContainer >
-<Typography variant="h2" color="secondry" sx={{textAlign:  'center'}}  > My Projects </Typography>
+<Typography variant="h2" color="secondry" sx={{textAlign:  'center'}} fontWeight='bold'  > My Projects </Typography>
 <Box>
 <TabsContainer direction="row"   >
 {myProjects.map((project , index) =>{

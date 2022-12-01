@@ -78,7 +78,7 @@ const  theme : Theme  = createTheme({
             "&:hover"  : {
               color : '#fff' ,
               backgroundColor  :'#000' ,
-             border : '2px solid #fff' 
+             border : '2px solid #000' 
             }
           },
         },
