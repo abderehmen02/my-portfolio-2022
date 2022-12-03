@@ -8,9 +8,12 @@
     "@mui/icons-material": "^5.10.15",
     "@mui/material": "^5.10.15",
     "cra-template-typescript": "1.2.0",
+    "framer-motion": "^7.6.17",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.4.1",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.8.8",
     "react-useonview": "^1.2.2",
     "typescript": "^4.9.3",
     "web-vitals": "^3.1.0"

@@ -24,10 +24,7 @@ const  theme : Theme  = createTheme({
     }
   },
   typography : {
-      h1 : {
-        fontFamily: 'Alexandria, sans-serif', 
-        fontSize : 48,
-      } ,
+
       h2 : {
           fontFamily : 'Alexandria, sans-serif ' ,
           fontSize : 40
@@ -86,5 +83,12 @@ const  theme : Theme  = createTheme({
     },
   },
 });
-
+theme.typography.h1 = {
+  fontFamily: 'Alexandria, sans-serif', 
+  fontSize : 48,
+  fontWeight : 'normal' ,
+  [theme.breakpoints.down('sm')] : {
+    fontSize: 32,
+  } ,
+} 
 export default theme

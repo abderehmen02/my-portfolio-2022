@@ -5,18 +5,41 @@ import Tab from '../components/MyProjects/tab.tsx'
 import {Project} from '../Types'
 import TabContent from '../components/MyProjects/tabContent.tsx'
 import {componentData} from '../Types/components'
-
-
+import { useInView , InView } from 'react-intersection-observer';
+import {Components} from '../assets/components.ts'
+import  Scroll from 'react-scroll';
+import {useAnimationControls , motion } from 'framer-motion'
+import {Element} from 'react-scroll'
 interface pageProps {
   RenderedComponent : componentData ,
-   setRenderedComponent :   React.Dispatch<React.SetStateAction<string>> ,
+   setRenderedComponent :   React.Dispatch<React.SetStateAction<componentData>> ,
 }
 
 
+ 
+
+const MyProjects : React.FC<pageProps> =  ({RenderedComponent , setRenderedComponent}) => {
+// hooks
+const drag = useAnimationControls()
 
 
+// functions
+const elementRendered = (isViewed)=>{
+    console.log("element draged")
+    if(isViewed  ){
+        setRenderedComponent(Components.MyProjects)
+        drag.start({
+            scale : 1
+        })
+    }
+    else{
+        drag.start({
+            scale: 0.7
+        })
+    }
+}
 
-const MyProjects : React.FC<pageProps> =  () => {
+
     // styled components
 const PageContainer  = styled(Box)(({theme})=>({
         height : "fit-content" ,
@@ -34,8 +57,6 @@ const TabsContainer = styled(Stack)(({theme})=>({
     justifyContent : 'space-around' , 
 
 } ))
-console.log('my projects') ;
-console.log(myProjects)
 //hooks
 const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(0)
 
@@ -47,23 +68,26 @@ const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(0)
 // variables 
 const selectedProject : Project =  myProjects[selectedProjectIndex]
 
-console.log(selectedProject)
-console.log("selectedProject")
 
     return (
+        <Element name="myProjects" >
+        <motion.div initial={{scale : 0.7 }} animate={drag} transition={{ ease: "easeOut", duration: 1 }}>
         <PageContainer >
 <Typography variant="h2" color="secondry" sx={{textAlign:  'center'}} fontWeight='bold'  > My Projects </Typography>
 <Box>
-<TabsContainer direction="row"   >
+<InView onChange={elementRendered} >
+<TabsContainer  direction="row"   >
 {myProjects.map((project , index) =>{
     return<Box onClick={()=>{  setSelectedProjectIndex(index)}} > <Tab  title={project.name} text={project.shortDescreption} selected={index === selectedProjectIndex}  ></Tab></Box>
-})}
+})} 
 </TabsContainer>
-{ selectedProject &&  <Box>
-    <TabContent title={selectedProject.name} longDescreption={selectedProject.longDescreption} shortDescreption={selectedProject.shortDescreption} images={selectedProject.images}  />
-</Box> }
+{ selectedProject &&  <Box marginBottom={16} >
+    <TabContent  title={selectedProject.name} longDescreption={selectedProject.longDescreption} shortDescreption={selectedProject.shortDescreption} images={selectedProject.images}  />
+</Box> }</InView>
+
 </Box>
-        </PageContainer>
+
+        </PageContainer></motion.div></Element>
     )
 }
 
