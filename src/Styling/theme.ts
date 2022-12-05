@@ -28,10 +28,6 @@ const  theme : Theme  = createTheme({
       h2 : {
           fontFamily : 'Alexandria, sans-serif ' ,
           fontSize : 40
-      } ,
-      h3 : {
-          fontFamily : 'Alexandria, sans-serif' ,
-          fontSize : 32
       } , 
       h4 : {
         fontFamily: 'Alexandria, sans-serif' ,
@@ -90,5 +86,12 @@ theme.typography.h1 = {
   [theme.breakpoints.down('sm')] : {
     fontSize: 32,
   } ,
-} 
+}
+theme.typography.h3 = {
+  fontFamily : 'Alexandria, sans-serif' ,
+  fontSize : 32 ,
+  [theme.breakpoints.down("sm")] : {
+    fontSize  : 24
+  }
+}  
 export default theme

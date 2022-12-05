@@ -23,11 +23,13 @@ const MyProjects : React.FC<pageProps> =  ({RenderedComponent , setRenderedCompo
 const drag = useAnimationControls()
 
 
+
 // functions
 const elementRendered = (isViewed)=>{
     console.log("element draged")
     if(isViewed  ){
-        setRenderedComponent(Components.MyProjects)
+        setRenderedComponent(Components.MyProjects) ;
+        Scroll.
         drag.start({
             scale : 1
         })
@@ -48,8 +50,10 @@ const PageContainer  = styled(Box)(({theme})=>({
         gap : 80,
         justifyContent : 'center' ,
         alignItems: 'center' ,
-        boxShadow : '0px 5px 4px black'  , 
+        // boxShadow : '0px 5px 4px black'  , 
         backgroundColor: theme.palette.primary.main ,
+        position : 'relative' , 
+        width : '95vw'
     }))
 const TabsContainer = styled(Stack)(({theme})=>({
     margin : 40,
@@ -64,7 +68,6 @@ const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(0)
 
 
 
-
 // variables 
 const selectedProject : Project =  myProjects[selectedProjectIndex]
 
@@ -73,17 +76,17 @@ const selectedProject : Project =  myProjects[selectedProjectIndex]
         <Element name="myProjects" >
         <motion.div initial={{scale : 0.7 }} animate={drag} transition={{ ease: "easeOut", duration: 1 }}>
         <PageContainer >
-<Typography variant="h2" color="secondry" sx={{textAlign:  'center'}} fontWeight='bold'  > My Projects </Typography>
+<Box sx={{position : 'absolute' , top : '50%'  , right  : '50%' , width : 8 , height : 8 , backgroundColor:'transparent' }} > <InView onChange={elementRendered} ></InView> </Box>
+<Typography variant="h1"  sx={{textAlign:  'center'}}   > My Projects </Typography>
 <Box>
-<InView onChange={elementRendered} >
-<TabsContainer  direction="row"   >
+<TabsContainer  direction="row" sx={{display : {xs : 'none'  , 'sm' : 'flex'}}}   >
 {myProjects.map((project , index) =>{
     return<Box onClick={()=>{  setSelectedProjectIndex(index)}} > <Tab  title={project.name} text={project.shortDescreption} selected={index === selectedProjectIndex}  ></Tab></Box>
 })} 
 </TabsContainer>
 { selectedProject &&  <Box marginBottom={16} >
-    <TabContent  title={selectedProject.name} longDescreption={selectedProject.longDescreption} shortDescreption={selectedProject.shortDescreption} images={selectedProject.images}  />
-</Box> }</InView>
+    <TabContent selectedProjectIndex={selectedProjectIndex} setSelectedProjectIndex={setSelectedProjectIndex} title={selectedProject.name} longDescreption={selectedProject.longDescreption} shortDescreption={selectedProject.shortDescreption} images={selectedProject.images}  />
+</Box> }
 
 </Box>
 

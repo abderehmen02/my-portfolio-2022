@@ -7356,7 +7356,7 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-raf@^3.4.1:
+raf@^3.4.0, raf@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.1.tgz#0742e99a4a6552f445d73e3ee0328af0ff1ede39"
   integrity sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==
@@ -7426,6 +7426,16 @@ react-dev-utils@^12.0.1:
     shell-quote "^1.7.3"
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
+
+react-dom@^16.13.1:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
+  integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.19.1"
 
 react-dom@^18.2.0:
   version "18.2.0"
@@ -7538,10 +7548,27 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-typing-effect@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/react-typing-effect/-/react-typing-effect-2.0.5.tgz#96780526d6958d553e2805124a2aa96c92764f09"
+  integrity sha512-IyVHASfzkdsWYw+/gvh2g1lwMf/ctpWhQHgMZHXQinKWxW8529XDhLGd9KTfnK5yUPLPaucdtA9GZFjIOjKCVg==
+  dependencies:
+    react "^16.13.1"
+    react-dom "^16.13.1"
+
 react-useonview@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/react-useonview/-/react-useonview-1.2.2.tgz#c2fe201d7e7d4dd5947b3e3f6e5ff927e3f82285"
   integrity sha512-znTGIdhBx8N++aC7dGrCN7vJxZaq/ff/xgF2AHwbkY+ZlhmkbHubLCAvWm6Ll/PIfdmxr+2E0gdc26BXWVqwlw==
+
+react@^16.13.1:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 react@^18.2.0:
   version "18.2.0"
@@ -7831,6 +7858,14 @@ saxes@^5.0.1:
   integrity sha512-5LBh1Tls8c9xgGjw3QrMwETmTMVk0oFgvrFSvWx62llR2hcEInrKNZ2GZCCuuy2lvWrdl5jhbpeqc5hRYKFOcw==
   dependencies:
     xmlchars "^2.2.0"
+
+scheduler@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.19.1.tgz#4f3e2ed2c1a7d65681f4c854fa8c5a1ccb40f196"
+  integrity sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
 scheduler@^0.23.0:
   version "0.23.0"
@@ -8599,6 +8634,14 @@ typescript@^4.9.3:
   version "4.9.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.3.tgz#3aea307c1746b8c384435d8ac36b8a2e580d85db"
   integrity sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==
+
+typewriter-effect@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/typewriter-effect/-/typewriter-effect-2.19.0.tgz#396fe35e1313279ae6202775bf8dff5db37c5b64"
+  integrity sha512-rhUX1ukmAXNFWUnMFx8CDU1uLWJQ7pRYzDU7WfHJRq43i6SmWSP9vFiUsOGfXINodUAgZiJ5xnzwLciHxZDGDg==
+  dependencies:
+    prop-types "^15.6.2"
+    raf "^3.4.0"
 
 unbox-primitive@^1.0.2:
   version "1.0.2"

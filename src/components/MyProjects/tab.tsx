@@ -1,5 +1,9 @@
 import { Box, styled ,Typography } from '@mui/material'
 import React from 'react'
+import * as Scroll from 'react-scroll';
+import {InView} from ''
+
+
 interface TabProps {
     title : string , 
     text : string , 
@@ -8,9 +12,10 @@ interface TabProps {
     // setSelectedProjoctIndex : React.Dispatch<React.SetStateAction<number>>
 }
 
+
 const Tab : React.FC<TabProps>   = ({title , text , selected  })=> {
-    const color = selected ? '#F1F1E9'  : 'black' ;
-    const bgColor = selected ? 'black'  : '#F1F1E9' ;
+    const color : string = selected ? '#F1F1E9'  : 'black' ;
+    const bgColor : string= selected ? 'black'  : '#F1F1E9' ;
  
     const StyledTab = styled(Box)(({theme})=>({
 border   :`2px solid ${color}` ,
@@ -31,21 +36,18 @@ cursor : 'pointer' ,
 '&:hover' : {
     color : selected ? color :  bgColor , 
     backgroundColor :  selected ? bgColor :  theme.palette.dark.light ,
-    border  : selected ? '6px 2px 4px black' : `2px solid ${theme.palette.white.dark}`
+    border  : selected ? '6px 2px 4px black' : `2px solid black`
 }
     }))
 
-const StyledTypograpthy = styled(Typography)(({theme})=>({
-  
-}))
     return (
         <StyledTab  >
-            <Typography variant="h4"   >
+            <Typography variant="h4"  textAlign='center' >
 {title}
             </Typography>
-            <StyledTypograpthy variant='h5'  >
+            <Typography textAlign="center"  variant='h5'  >
 {text}
-            </StyledTypograpthy>
+            </Typography>
         </StyledTab>
     )
 }

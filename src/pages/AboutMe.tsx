@@ -29,8 +29,8 @@ const AboutMe : React.FC<pageProps> =  ({RenderedComponent , setRenderedComponen
 // functions
 const inViewChange  = (isView)=>{
     if(RenderedComponent.name !==  Components.AboutMe.name && isView ){
+        setRenderedComponent(Components.AboutMe) ;
         window.scrollTo(0 , 0)
-        setRenderedComponent(Components.AboutMe)
 up.start({
     top : '0px' ,
     transition: { ease: "easeOut", duration: 0.3 }
@@ -44,37 +44,36 @@ up.start({
 const Title = styled(Typography)(({theme})=>({
     color : theme.palette.info.main
 }))
-const Container = styled(Box)(({theme})=>({
-    display : 'flex',
-    height : '60%' ,
-    alignItems : 'center', 
-    justifyContent: 'space-around'
-}))
 const AboutMePage = styled(Box)(({theme})=>({
-    height : '100vh',
+    height : '120vh',
+    width : '100vw' ,
     backgroundColor : theme.palette.primary.main ,
     alignItems: 'center',
     justifyContent : 'space-around',
     display : 'flex'  ,
+    position : 'relative',
     [theme.breakpoints.down('sm')] :{
-    flexDirection : 'column'   
+    flexDirection : 'column'  ,
+    height : '200vh',
     }
 }))
     return (
         <Element name="aboutMe" >
         <AboutMePage    >
-            <img src={MyImage} style={{ height: '90%' , backgroundColor : 'green' , width : '50%' }}   ></img> 
-            <Box  width="35%" sx={{display: 'flex' , alignItems: 'center' , flexDirection: 'column' , gap : 7}} >
-<Typography variant='h1' textAlign='center' > About ME </Typography>
+<Box sx={{ position  : 'absolute' ,top : '50%' , right : '50%' , backgroundColor : 'transparent' , width : '50px', height :'50px' }} ><InView onChange={inViewChange} ></InView>
+ </Box>
+       <Box height='90%' width={{xs: '100%' , sm : 'fit-content'}} >      <img src={MyImage} style={{  backgroundColor : 'green'  , width : '100%'  }}   ></img></Box> 
+            <Box  width={{xs : '95%' , sm: '35%'}} sx={{display: 'flex' , alignItems: 'center' , flexDirection: 'column' , gap : 7}} >
+<Box gap={4} >
+<Typography variant='h1' textAlign='center'  > About ME </Typography>
 <Title variant='h3' textAlign='center'  > I am Abderrahmane</Title>
-<InView onChange={inViewChange} >
-<Typography textAlign='center' variant="h5" > a full stack web developer , i began my careere in 2020 , 
+</Box>
+<Typography textAlign='center' variant="h5" width={{xs: '100%' , sm : '100%'}} > a full stack web developer , i began my careere in 2020 , 
 i am specialized in mern stack , ui/ux , and typescript , i have built and deployed several web apps that provide height value and solves real problems  , my goal is to build a product that is convenient for the user  </Typography>
-</InView>
 
-<Stack direction='row'  spacing={8} >
-<Button sx={{width : '240px'}} variant='contained' startIcon={<LinkedInIcon  />} > Explore My Twiter </Button>
-<Button sx={{width : '240px'}}  variant='outlined' startIcon={<TwitterIcon />} > Explore My Facebook </Button>
+<Stack direction={{sx: 'column' , sm : 'row'}}  spacing={8}  >
+<Button  sx={{width : '240px' , margin : {sm : 0 , xs: 4} }} variant='contained' startIcon={<LinkedInIcon  />} > Explore My Twiter </Button>
+<Button   sx={{width : '240px' , margin : {sm : 0 , xs: 4}   }}  variant='outlined' startIcon={<TwitterIcon />} > Explore My Facebook </Button>
 </Stack></Box>
 
         </AboutMePage></Element>

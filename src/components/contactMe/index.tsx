@@ -3,8 +3,17 @@ import {TextField ,  styled ,FormControl, Box, Button , Stack , Typography } fro
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import {InView} from 'react-intersection-observer'
+import { componentData } from '../../Types/components';
 
-export const  ContactMeForm : React.FC =  ()=> {
+
+interface ContactMeFormProps {
+  RenderedComponent : componentData ,
+  setRenderedComponent : React.Dispatch<any> 
+}
+
+
+export const  ContactMeForm : React.FC<ContactMeFormProps> =  ({RenderedComponent  })=> {
     const StyledTextField = styled(TextField)(({theme})=>({
         '& label.Mui-focused': {
             color: 'black',
@@ -56,9 +65,9 @@ export const  ContactMeForm : React.FC =  ()=> {
 }
 
 export const ContactMeText : React.FC  = ()=>{
-    return <Box sx={{ display : 'flex' , alignItems : 'center'  , justifyContent : 'space-between' , flexDirection :'column' , width : '50%'  , padding  : 4  , gap : 8}} >
-        <Typography  variant='h3'  >       Want to say Something ?   </Typography>
-        <Box sx={{display : 'flex' , textAlign : 'center' , flexDirection: 'column' , width : '65%' , alignItems : 'center' , justifyContent : 'space-around'  , gap : 4 }} >
+    return <Box sx={{    display : 'flex' , alignItems : 'center'  , justifyContent : 'space-between' , flexDirection :'column' , width : {sx : '90%'  , sm :' 50%'}  , padding  : 4  , gap : 8}} >
+        <Typography  variant='h3'  textAlign='center' >       Want to say Something ?   </Typography>
+        <Box sx={{   display : 'flex' , textAlign : 'center' , flexDirection: 'column' , width : {sx : '100%' , sm :'65%'} , alignItems : 'center' , justifyContent : 'space-around'  , gap : 4 }} >
         <Typography variant='h5' textAlign="center" >if you have any question , you have any idea ,
 or you want to work with me feel free by submiting your name , email and message  i will reply to you asap</Typography>
         <Typography variant='h5' >you can also contact me on my social media accounts </Typography></Box>

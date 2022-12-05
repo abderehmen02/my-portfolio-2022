@@ -67,16 +67,15 @@ const StyledToolBar = styled(Toolbar)(({theme})=>({
     position : 'fixed' ,
     top : 0,
     right  : 0,
-    margin : 5 ,
     backgroundColor : theme.palette.primary.main ,
     zIndex : 1,
     width : '97vw',
   }))
 
-  const IconsBox = styled(Box)({
+  const IconsBox = styled(Box)( ({theme})=>({
 gap : 40 ,
-alignItems : 'center'
-  })
+alignItems : 'center' ,
+  }))
 
 
 
@@ -141,7 +140,7 @@ const MobileMenu = styled(Box)(({theme})=>({  display : {md: 'none' , xs: 'block
 
 return (
   <StyledToolBar   >
-<Avatar sx={{width : 48 , height : 46}} src={MyImg} ></Avatar>    
+<Avatar sx={{width : 48 , height : 46}} src={MyImg} sx={{margin : {sm : 0 , xs : '8px'}}} ></Avatar>    
     <Box sx={{display: {md: 'flex' , xs : 'none'  } ,  gap : 5 }}  >
 <Link to="home"  >  <StyledComponentText fontSize={20} sx={{color : RenderedComponent.name === Components.Home.name ? '#FF196A'  : 'black'  }}  onClick={backToHome} >Home</StyledComponentText></Link>
 <Link to='aboutMe' ><StyledComponentText fontSize={20} sx={{color : RenderedComponent.name === Components.AboutMe.name ? '#FF196A'  : 'black' }}  >About ME</StyledComponentText></Link>
@@ -149,12 +148,9 @@ return (
 <Link to="contactMe" ><StyledComponentText fontSize={20} sx={{color : RenderedComponent.name === Components.ContactMe.name ? '#FF196A' : 'black' }} >Contact Me</StyledComponentText></Link>
     </Box>
     <IconsBox sx={{display: {md: 'flex' , xs : 'none'  }}} >
-      <FacebookOutlinedIcon fontSize='large'/>
-      <InstagramIcon fontSize='large' />
+      <FacebookOutlinedIcon sx={{"&:hover"  : {color : '#FF196A'} , cursor : 'pointer' }} fontSize='large' color='inherit' />
+      <InstagramIcon sx={{"&:hover"  : {color : '#FF196A'} , cursor : 'pointer' }} fontSize='large' />
     </IconsBox>
-    {/* <Typography variant='h3' margin={2}  sx={{display : {xs: 'block' , md : 'none'}}} >
-      Abde Rahmane
-    </Typography> */}
     <MenuIcon onClick={()=>{setopenList(!openList)}} fontSize='large'  sx={{display : {xs: 'block' , md : 'none'}}} />
     <MobileList/>
 </StyledToolBar>

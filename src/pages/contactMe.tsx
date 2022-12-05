@@ -1,4 +1,4 @@
-import {Box ,styled ,     Typography } from '@mui/material'
+import {Box ,styled ,     Typography, unstable_createMuiStrictModeTheme } from '@mui/material'
 import React from 'react'
 import {ContactMeForm , ContactMeText} from '../components/contactMe/index.tsx'
 import {componentData} from  '../Types/components'
@@ -17,23 +17,29 @@ const ContactMe : React.FC<pageProps>  =  ({RenderedComponent , setRenderedCompo
     const StyledContactMePage = styled(Box)(({theme})=>({
         backgroundColor : theme.palette.primary.main  ,
         height  : '100vh',
+        position : 'relative' ,
+        [theme.breakpoints.down("sm")] :{
+            height : 'fit-content'
+        }
     }))
 
 
 const inViewChanged = (isViewed : boolean )=>{
 if(isViewed){
-    setRenderedComponent(Components.ContactMe)
+    setRenderedComponent(Components.ContactMe)  ;
+
 }
 }
 
 return (
     <Element name="contactMe" >
     <StyledContactMePage >
-        <Typography  textAlign='center' fontWeight='bold' margin={8} variant="h2" > Contact Me </Typography>
-        <Box sx={{display : 'flex'  , alignItems: 'center' , justifyContent: 'center'}} >
-        <InView onChange={inViewChanged} >
+        <Box sx={{position :'absolute' , top : '50%' , right : '50%' , width : '50px'  ,height : '50px' , backgroundColor : 'transparent' }} >
+            <InView onChange={inViewChanged} ></InView>
+        </Box>
+        <Typography  textAlign='center'  margin={8} variant="h1" > Contact Me </Typography>
+        <Box sx={{display : 'flex'  , alignItems: 'center' , justifyContent: 'center' , flexDirection : {xs : 'column'  , sm : 'row' } }} >
          <ContactMeText/>   
-         </InView>
          <ContactMeForm/>
         </Box>
     </StyledContactMePage></Element>
